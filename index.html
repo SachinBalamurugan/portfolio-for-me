@@ -1,0 +1,327 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sachin Balamurugan — Software Engineer</title>
+  <meta name="description" content="Sachin Balamurugan — Computer Science graduate skilled in Python, data engineering, deep learning and ETL pipelines. Portfolio highlighting projects, education and certifications." />
+  <meta name="theme-color" content="#3b82f6" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Color palette */
+    :root{
+      --primary:#3b82f6;
+      --accent:#10b981;
+      --bg:#f9fafb;
+      --card:#fff;
+      --text:#1f2937;
+      --header-bg:#e0f2fe;
+      --skill-bg:#bfdbfe;
+      --link-hover:#1d4ed8;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.06);
+      --max-width:1200px;
+      --radius:12px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      margin:0;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    .section-padding{padding:60px 0}
+
+    /* Skip link for keyboard users */
+    .skip-link{
+      position: absolute;
+      left:-999px;
+      top:auto;
+      width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus{
+      left:10px;top:10px;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;border-radius:6px;z-index:10000;
+    }
+
+    /* Navigation */
+    nav{
+      background:var(--primary);
+      color:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:var(--shadow);
+    }
+    nav .container{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+    nav a{
+      color:#fff;text-decoration:none;padding:12px 16px;font-weight:600;border-radius:8px;
+      transition:background-color .18s;
+    }
+    nav a:hover, nav a[aria-current="true"]{background:var(--link-hover)}
+
+    /* Header */
+    header#header{
+      background:var(--header-bg);
+      padding:72px 0;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+    header h1{font-size:2.6rem;margin:0;color:var(--primary);letter-spacing:0.2px}
+    header h2{font-weight:300;margin:6px 0 0;font-size:1.15rem;color:var(--text)}
+
+    .contact-info{
+      display:flex;gap:18px;justify-content:center;margin-top:18px;flex-wrap:wrap;
+    }
+    .contact-info a{
+      color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:600;
+      transition:color .2s;
+    }
+    .contact-info a:hover{color:var(--primary)}
+    .icon{font-size:1.1rem}
+
+    /* Section headings */
+    h3{
+      font-size:1.75rem;color:var(--primary);margin-bottom:28px;text-align:center;
+      border-bottom:3px solid var(--accent);display:block;padding-bottom:6px;width:fit-content;margin-left:auto;margin-right:auto;
+    }
+
+    /* Cards */
+    .card{
+      background:var(--card);
+      padding:26px;margin-bottom:20px;border-radius:var(--radius);box-shadow:var(--shadow);
+      transition:transform .22s,border-color .22s;border-left:5px solid var(--accent);
+    }
+    .card:hover{transform:translateY(-5px)}
+
+    /* Summary */
+    #summary p{font-size:1.05rem;max-width:900px;margin:0 auto;text-align:center;padding-top:8px}
+
+    /* Skills */
+    .skills-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:18px}
+    .skill-item{
+      background:var(--skill-bg);color:var(--text);padding:8px 14px;border-radius:20px;font-weight:600;font-size:.95rem;border:1px solid var(--primary);
+    }
+
+    /* Projects & Education */
+    .project-title,.education-title{color:var(--primary);font-size:1.2rem;margin:0 0 6px}
+    .project-meta,.education-meta{color:#4b5563;font-style:italic;margin-bottom:12px;display:block}
+
+    .project-description ul{padding-left:20px;margin:10px 0}
+
+    /* Timeline */
+    .timeline{position:relative;padding:20px 0;max-width:900px;margin:0 auto}
+    .timeline::before{
+      content:'';position:absolute;width:4px;background:var(--primary);top:0;bottom:0;left:50%;transform:translateX(-50%);
+    }
+    .timeline-item{position:relative;margin-bottom:36px;width:50%;padding:10px 30px}
+    .timeline-item:nth-child(odd){left:0;text-align:right}
+    .timeline-item:nth-child(even){left:50%}
+    .timeline-item::after{
+      content:'';position:absolute;width:14px;height:14px;border:4px solid var(--accent);background:#fff;top:22px;border-radius:50%;z-index:1;
+    }
+    .timeline-item:nth-child(odd)::after{right:-7px}
+    .timeline-item:nth-child(even)::after{left:-7px}
+    .timeline-content{background:var(--card);padding:18px;border-radius:10px;box-shadow:var(--shadow);border-left:none}
+
+    /* Footer */
+    footer{background:var(--primary);color:#fff;text-align:center;padding:18px 0;margin-top:36px}
+
+    /* Utilities */
+    .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .muted{color:#4b5563}
+
+    /* Responsive tweaks */
+    @media (max-width:900px){
+      header h1{font-size:2.2rem}
+      .timeline::before{left:20px}
+      .timeline-item{width:100%;padding-left:64px;left:0 !important;text-align:left !important}
+      .timeline-item::after{left:14px !important}
+    }
+    @media (max-width:480px){
+      .contact-info{flex-direction:column;gap:10px}
+      header{padding:48px 0}
+      nav .container{padding:6px 10px}
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav role="navigation" aria-label="Primary">
+    <div class="container" role="menubar">
+      <a href="#summary" role="menuitem">Summary</a>
+      <a href="#skills" role="menuitem">Skills</a>
+      <a href="#projects" role="menuitem">Projects</a>
+      <a href="#education" role="menuitem">Education</a>
+      <a href="#achievements" role="menuitem">Certifications</a>
+    </div>
+  </nav>
+
+  <header id="header">
+    <div class="container">
+      <h1>Sachin Balamurugan</h1>
+      <h2>Computer Science Graduate</h2>
+
+      <div class="contact-info" aria-label="Contact information">
+        <a href="tel:+918300580140"><span class="icon" aria-hidden="true">📞</span><span>+91 8300580140</span></a>
+        <a href="mailto:sachindhasvin@gmail.com"><span class="icon" aria-hidden="true">✉️</span><span>sachindhasvin@gmail.com</span></a>
+        <a href="https://linkedin.com/in/SachinBalamurugan" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true">🔗</span><span>LinkedIn</span></a>
+        <a href="https://github.com/sachinbsbe" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true">🐙</span><span>GitHub</span></a>
+      </div>
+
+      <p style="margin-top:10px;"><span class="icon" aria-hidden="true">📍</span><span class="muted">Sirkali, Mayiladuthurai, Tamil Nadu</span></p>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <section id="summary" class="section-padding">
+      <div class="container">
+        <h3>Professional Summary</h3>
+        <p>
+          Enthusiastic and detail-oriented Computer Science graduate with a strong foundation in Python, data structures, and database systems. Passionate about data engineering with hands-on experience in data collection, processing, and ETL pipelines using Pandas, NumPy and SQL. Familiar with cloud basics (AWS/GCP), Git, and applied deep learning for real-world problems. Eager to contribute to data projects and continue learning.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="section-padding" style="background:#eef2ff">
+      <div class="container">
+        <h3>Technical Skills</h3>
+        <div class="skills-grid" aria-hidden="false">
+          <div class="skill-item">Python</div>
+          <div class="skill-item">Java</div>
+          <div class="skill-item">Eclipse</div>
+          <div class="skill-item">Git</div>
+          <div class="skill-item">VS Code</div>
+          <div class="skill-item">MySQL</div>
+          <div class="skill-item">Pandas</div>
+          <div class="skill-item">NumPy</div>
+          <div class="skill-item">Matplotlib</div>
+          <div class="skill-item">ETL Pipelines</div>
+          <div class="skill-item">Deep Learning (ANN, CNN, RNN)</div>
+          <div class="skill-item">Cloud basics (AWS/GCP)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-padding">
+      <div class="container">
+        <h3>Featured Projects</h3>
+
+        <article class="card" aria-labelledby="proj-ckd">
+          <h4 id="proj-ckd" class="project-title">Deep Learning Models for Early Prediction and Risk Identification of CKD</h4>
+          <div class="project-meta">Python · Deep Learning (ANN, CNN, RNN) · Feature engineering · Model tuning</div>
+          <div class="project-description">
+            <ul>
+              <li>Developed ANN/CNN/RNN-based models to predict Chronic Kidney Disease from patient records.</li>
+              <li>Performed data cleaning, feature selection and model tuning to improve predictive performance.</li>
+              <li>Explored interpretability and evaluation metrics to support clinical decision-making.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="proj-spotify">
+          <h4 id="proj-spotify" class="project-title">Data Engineering — Spotify Data Pipeline</h4>
+          <div class="project-meta">Pandas · NumPy · Matplotlib · ETL · Jupyter · Git · Cloud basics</div>
+          <div class="project-description">
+            <ul>
+              <li>Built an end-to-end ETL pipeline to ingest, clean and transform Spotify datasets into analytics-ready tables.</li>
+              <li>Used Pandas/NumPy for transformation and Matplotlib for visual insights.</li>
+              <li>Version-controlled work with Git and documented notebooks for reproducibility.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section-padding" style="background:#f0f9ff">
+      <div class="container">
+        <h3>Education & Internships</h3>
+
+        <div class="timeline" role="list">
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-content card">
+              <p class="education-title">Bachelor of Engineering — Computer Science</p>
+              <p class="education-meta">MRK Institute of Technology, Kattumannarkoil · Graduation: May 2025</p>
+              <p>Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-content card">
+              <p class="education-title">Software Development Intern</p>
+              <p class="education-meta">Vei Technologies Pvt Ltd, Chennai · Apr 2025 – May 2025</p>
+              <ul>
+                <li>Developed backend APIs using Python.</li>
+                <li>Collaborated on debugging and optimization tasks.</li>
+                <li>Gained practical experience with Git and team workflows.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements" class="section-padding">
+      <div class="container">
+        <h3>Certifications & Achievements</h3>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4 class="project-title" style="font-size:1.05rem">Certifications</h4>
+            <ul>
+              <li>Infosys Springboard — Python Programming</li>
+              <li>HTML/CSS Certification</li>
+              <li>Forage — Front End & Software Engineering Simulations</li>
+              <li>Workshop — Data Science</li>
+              <li>Cisco — Network Essentials</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4 class="project-title" style="font-size:1.05rem">Achievements</h4>
+            <ul>
+              <li>Third place — College paper presentation competition</li>
+              <li>Participant — 24-hour hackathon · IEEE member</li>
+              <li>Completed lower-level Typist certification</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Sachin Balamurugan · Built with HTML & CSS</p>
+    </div>
+  </footer>
+
+  <!-- Minimal JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Sachin Balamurugan",
+    "jobTitle":"Computer Science Graduate",
+    "url":"https://github.com/sachinbsbe",
+    "sameAs":[
+      "https://linkedin.com/in/SachinBalamurugan",
+      "https://github.com/sachinbsbe"
+    ]
+  }
+  </script>
+</body>
+</html>
